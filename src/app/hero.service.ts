@@ -15,11 +15,11 @@ export class HeroService {
     private httpClient: HttpClient,
     private messageService: MessageService) { }
 
- listHero: Hero[];
+ listHero: Hero;
 
  getHeroes(): Observable<Hero[]>{
    this.ngOnInitc().subscribe(data=>{this.listHero  = data});
-   this.messageService.add("config : " + this.msg);
+   this.messageService.add("config : " + this.listHero.id +  ":" + this.listHero.name );
    this.messageService.add(`HeroService: Fetched Heroes`);
    return of(HEROESX);
  }
